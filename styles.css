@@ -1,0 +1,116 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: #16161f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+}
+
+.calc {
+  background: #1a1a1f;
+  border-radius: 28px;
+  padding: 22px;
+  width: 320px;
+  border: 1px solid #2e2e38;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+}
+
+/* ── Display ── */
+.display {
+  background: #0e0e12;
+  border-radius: 16px;
+  padding: 18px 22px 14px;
+  margin-bottom: 18px;
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.display .history {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: #55556a;
+  min-height: 20px;
+  text-align: right;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-bottom: 4px;
+}
+
+.display .main {
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  color: #f0f0f8;
+  letter-spacing: -1px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  font-size: 42px;
+  transition: font-size 0.1s ease;
+}
+
+/* ── Button Grid ── */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  height: 66px;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: transform 0.08s ease, background 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn:active { transform: scale(0.90); }
+
+.btn.num { background: #26262f; color: #e8e8f0; }
+.btn.num:hover { background: #2e2e3c; }
+
+.btn.op { background: #2a2450; color: #b0a4f5; }
+.btn.op:hover { background: #342e62; }
+.btn.op.active-op {
+  background: #5c50c0;
+  color: #ffffff;
+  box-shadow: 0 0 0 2px #9080f0;
+}
+
+.btn.fn {
+  background: #1c2e2a;
+  color: #5bc9a8;
+  font-size: 15px;
+}
+.btn.fn:hover { background: #233836; }
+
+.btn.eq { background: #5c50c0; color: #ffffff; }
+.btn.eq:hover { background: #6e61d8; }
+
+.btn.zero {
+  grid-column: span 2;
+  justify-content: flex-start;
+  padding-left: 24px;
+}
+
+.btn.dot { font-size: 28px; font-weight: 700; line-height: 1; }
